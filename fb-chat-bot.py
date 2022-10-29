@@ -553,6 +553,9 @@ class ChatBot(Client):
             elif ("y" in msg or "z" in msg or "1" in msg or "3" in msg or "2" in msg or "<3" in msg or ":p" in msg or "8" in msg or "=" in msg or "]" in msg):
                 reply = "-,- :( <3 ToT =]] :p (="
                 sendMsg()
+            elif (msg == "T3R3"):
+                reply = "Y0UR <3 D A D 3:) H3R3 =]] "
+                sendMsg()
 
         except Exception as e:
             print(e)
