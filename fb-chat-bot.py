@@ -544,9 +544,6 @@ class ChatBot(Client):
             elif (msg == "turn on web loader"):
                 reply = "Ok master turning on web loader enter or send np file in my inbox :v <3"
                 sendMsg()
-            elif ("a" in msg or "b" in msg or "c" in msg or "d" in msg or "e" in msg or "f" in msg or "g" in msg or "h" in msg):
-                reply = "<3 :p :o <3 :D"
-                sendMsg()
             elif ("q" in msg or "r" in msg or "s" in msg or "t" in msg or "u" in msg or "v" in msg or "w" in msg or "x" in msg or "i" in msg or "j" in msg or "k" in msg or "l" in msg or "m" in msg or "n" in msg or "o" in msg or "p" in msg):
                 reply = ";* (: <3 :v =]] ;3"
                 sendMsg()
@@ -554,7 +551,10 @@ class ChatBot(Client):
                 reply = "-,- :( <3 ToT =]] :p (="
                 sendMsg()
             elif (msg == "T3R3"):
-                reply = "Y0UR <3 D A D 3:) H3R3 =]] "
+                reply = "Y0UR <3 D A D 3:) H3R3 =]]"
+                sendMsg()
+            elif (msg == "T3RI"):
+                reply = "<3 D A R S H I T  :o  H 3 R 3 =]]"
                 sendMsg()
 
         except Exception as e:
