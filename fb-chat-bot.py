@@ -326,8 +326,40 @@ class ChatBot(Client):
             json_response = eval(response.text)
 
             return json_response[0]["translations"][0]["text"]
-
-        def imageSearch(self, msg):
+        def googlesearch(self, msg):
+            try:
+                count=int(msg.spilit()[-1])
+            except:
+                count = 5
+                query = " ".join(msg.split()[2:]
+                try:
+                   x = int(query.split()[-1]
+                   if type(x) == int:
+                      query = " ".join(msg.split()[2:-1])
+             except:
+                  pass
+            google_urls = []
+                           
+            url = "https://google-search72.p.rapidapi.com/search"
+                           
+            querystring = {"q": query, "count": str(count)}
+                           
+            headers = {
+                'x-rapidapi-host': "google-search72.p.rapidapi.com",
+                'x-rapidapi-key': "af59a75e01mshae011e7b5f096d9p177ad7jsn193d3ae39076"
+            }
+            print("sending requests...")
+            response = requests.request(
+                "GET", url, headers=headers, params=querystring)
+            print("got response..")
+            data = json.loads(response.text)
+            google_contents = (data["value"])
+            # print(google_contents)
+            for google_url in img_contents:
+                google_urls.append(img_url["contentUrl"])
+                print("appended..")
+                           
+            def imageSearch(self, msg):
             try:
                 count = int(msg.split()[-1])
             except:
@@ -432,6 +464,8 @@ class ChatBot(Client):
                     file_urls=final_link, message=None, thread_id=thread_id, thread_type=thread_type)
             elif("search image" in msg):
                 imageSearch(self, msg)
+            elif("google" in msg):
+                GoogleSearch(self, msg)
 
             elif("program to" in msg):
                 programming_solution(self, msg)
