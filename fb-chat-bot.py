@@ -277,13 +277,13 @@ class ChatBot(Client):
                 pass
             image_urls = []
 
-            url = "https://bing-image-search1.p.rapidapi.com/images/search"
+            url = "https://google-search72.p.rapidapi.com/search"
 
             querystring = {"q": query, "count": str(count)}
 
             headers = {
-                'x-rapidapi-host': "bing-image-search1.p.rapidapi.com",
-                'x-rapidapi-key': "801ba934d6mshf6d2ea2be5a6a40p188cbejsn09635ee54c45"
+                'x-rapidapi-host': "google-search72.p.rapidapi.com",
+                'x-rapidapi-key': "af59a75e01mshae011e7b5f096d9p177ad7jsn193d3ae39076"
             }
             response = requests.request(
                 "GET", url, headers=headers, params=querystring)
@@ -347,7 +347,7 @@ class ChatBot(Client):
 
             headers = {
                 'x-rapidapi-host': "bing-image-search1.p.rapidapi.com",
-                'x-rapidapi-key': "801ba934d6mshf6d2ea2be5a6a40p188cbejsn09635ee54c45"
+                'x-rapidapi-key': "af59a75e01mshae011e7b5f096d9p177ad7jsn193d3ae39076"
             }
             print("sending requests...")
             response = requests.request(
@@ -433,7 +433,7 @@ class ChatBot(Client):
             elif("search image" in msg):
                 imageSearch(self, msg)
 
-            elif("program to" in msg):
+            elif("google" in msg):
                 programming_solution(self, msg)
             elif("translate" in msg):
                 reply = translator(self, msg, msg.split()[-1])
