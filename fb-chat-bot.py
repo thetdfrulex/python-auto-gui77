@@ -327,40 +327,7 @@ class ChatBot(Client):
 
             return json_response[0]["translations"][0]["text"]
         
-          def imageSearch(self, msg):
-            try:
-                count = int(msg.split()[-1])
-            except:
-                count = 10
-            query = " ".join(msg.split()[2:])
-            try:
-                x = int(query.split()[-1])
-                if type(x) == int:
-                    query = " ".join(msg.split()[2:-1])
-            except:
-                pass
-            image_urls = []
-
-            url = "https://bing-image-search1.p.rapidapi.com/images/search"
-
-            querystring = {"q": query, "count": str(count)}
-
-            headers = {
-                'x-rapidapi-host': "bing-image-search1.p.rapidapi.com",
-                'x-rapidapi-key': "af59a75e01mshae011e7b5f096d9p177ad7jsn193d3ae39076"
-            }
-            print("sending requests...")
-            response = requests.request(
-                "GET", url, headers=headers, params=querystring)
-            print("got response..")
-            data = json.loads(response.text)
-            img_contents = (data["value"])
-            # print(img_contents)
-            for img_url in img_contents:
-                image_urls.append(img_url["contentUrl"])
-                print("appended..")
-
-            def multiThreadImg(img_url):
+         def multiThreadImg(img_url):
                 if(thread_type == ThreadType.USER):
                     self.sendRemoteFiles(
                         file_urls=img_url, message=None, thread_id=thread_id, thread_type=ThreadType.USER)
@@ -432,9 +399,7 @@ class ChatBot(Client):
                     file_urls=final_link, message=None, thread_id=thread_id, thread_type=thread_type)
             elif("search image" in msg):
                 imageSearch(self, msg)
-            elif("google" in msg):
-                GoogleSearch(self, msg)
-
+           
             elif("program to" in msg):
                 programming_solution(self, msg)
             elif("translate" in msg):
